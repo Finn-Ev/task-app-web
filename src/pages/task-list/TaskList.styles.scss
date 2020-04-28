@@ -1,0 +1,29 @@
+.task-list {
+  .task-list-header {
+    font-weight: 300;
+    text-align: center;
+    margin: 2.5rem 0 1.25rem 0;
+  }
+  .task-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 80%;
+    margin: auto;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+  .no-pending-tasks {
+    margin-top: 2rem;
+    font-weight: 300;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .task-list {
+    margin-left: -5rem;
+    .task-wrapper {
+      max-width: 40%;
+    }
+  }
+}

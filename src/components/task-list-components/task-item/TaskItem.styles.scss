@@ -1,0 +1,65 @@
+@import '../../../styles/_variables';
+
+.task-item {
+  display: flex;
+  background: $bg-secondary;
+  flex-direction: column;
+  border: $accent 1px solid;
+  padding: 1rem;
+  margin: 1rem;
+  width: 300px;
+
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+
+    .task-heading {
+      font-weight: 300;
+    }
+    svg {
+      font-size: 2.25rem;
+      padding: 0 5px 5px 5px;
+    }
+  }
+  .task-body {
+    display: flex;
+    flex-direction: column;
+  }
+  .task-footer {
+    margin-top: auto;
+    display: flex;
+    .task-controls {
+      display: flex;
+      margin-left: auto;
+
+      .task-edit svg,
+      .task-done svg {
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: rgb(146, 146, 146);
+      }
+      .task-done svg {
+        margin-right: 5px;
+        font-size: 1.75rem;
+        &:hover {
+          color: rgb(64, 185, 64);
+        }
+      }
+      .task-edit svg {
+        margin-right: 5px;
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .task-item {
+    width: 30vw;
+  }
+  .task-edit svg {
+    margin-right: 20px;
+  }
+}

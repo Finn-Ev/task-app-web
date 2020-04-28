@@ -1,0 +1,25 @@
+.alert {
+  padding: 0.8rem;
+  margin: 10px 0 !important;
+  opacity: 0.9;
+  border: none;
+  border-radius: 0;
+  color: white;
+  max-width: 500px;
+  margin: auto;
+  min-width: 250px;
+  width: 50%;
+  text-align: center;
+}
+
+.alert-dark {
+  background-color: rgb(44, 44, 44);
+}
+
+.alert-danger {
+  background-color: rgb(185, 56, 56);
+}
+
+.alert-success {
+  background-color: rgb(18, 145, 81);
+}

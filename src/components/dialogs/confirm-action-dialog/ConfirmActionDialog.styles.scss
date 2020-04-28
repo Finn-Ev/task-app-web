@@ -1,0 +1,28 @@
+@import '../../../styles/_variables';
+
+.confirm-action-dialog div div {
+  background-color: $bg-primary;
+  box-shadow: none;
+  .confirm-action-dialog-heading {
+    font-weight: 200;
+    color: white;
+    text-align: center;
+  }
+  .confirm-action-dialog-icons {
+    display: flex;
+    justify-content: space-around;
+    margin: 1.5rem 0;
+    .confirm-action-dialog-icon-cancel,
+    .confirm-action-dialog-icon-done {
+      cursor: pointer;
+      color: grey;
+      font-size: 2rem;
+    }
+    .confirm-action-dialog-icon-cancel:hover {
+      color: rgb(165, 39, 39);
+    }
+    .confirm-action-dialog-icon-done:hover {
+      color: rgb(64, 185, 64);
+    }
+  }
+}

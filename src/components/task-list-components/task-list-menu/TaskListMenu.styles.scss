@@ -1,0 +1,26 @@
+@import "../../../styles/_variables";
+.task-list-menu {
+  width: 70%;
+  border-radius: 5px;
+  margin: auto;
+  display: block;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+
+  .new-task,
+  .sort {
+    background: $bg-secondary;
+    padding: 3px 8px;
+    border-radius: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .task-list-menu {
+    width: 30%;
+  }
+}

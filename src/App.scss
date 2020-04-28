@@ -1,0 +1,60 @@
+@import './styles/__variables.scss';
+
+:root {
+  font-size: 16px;
+  font-family: 'Open Sans';
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $bg-primary;
+  color: $text-primary;
+  margin: 0;
+  padding: 0;
+}
+
+body::-webkit-scrollbar {
+  width: 0.2rem;
+}
+
+body::-webkit-scrollbar-track {
+  background: $bg-primary;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: $accent;
+}
+
+.App {
+  @media only screen and (max-width: 1000px) {
+    padding-bottom: 5rem;
+  }
+  @media only screen and (min-width: 1000px) {
+    margin-left: 5rem;
+  }
+}
+
+// active NavLink styles
+@media only screen and (min-width: 1000px) {
+  .active svg {
+    color: $accent !important;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .active {
+    background: $bg-primary;
+    svg {
+      color: $accent !important;
+    }
+  }
+}
+
+.line {
+  color: $accent;
+  background-color: $accent;
+}

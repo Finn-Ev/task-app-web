@@ -1,0 +1,48 @@
+@import '../../styles/_variables';
+.landing {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  .landing-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    border: 2px solid $accent;
+
+    & img {
+      height: 5rem;
+    }
+
+    & span {
+      font-size: 3rem;
+      line-height: 3px !important;
+      margin: 0 2rem;
+      font-weight: 200;
+    }
+  }
+  .landing-info {
+    text-align: center;
+    width: 92.5% !important;
+    margin: 2rem 0;
+    max-width: 800px;
+    line-height: 25px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .landing {
+    margin-left: -5rem;
+  }
+
+  img {
+    height: 6rem !important;
+  }
+
+  .landing-logo-text {
+    font-size: 4rem !important;
+    line-height: 3px !important;
+    margin: 0 2rem;
+    font-weight: 200;
+  }
+}

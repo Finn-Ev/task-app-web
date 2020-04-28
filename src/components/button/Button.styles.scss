@@ -1,0 +1,14 @@
+@import '../../styles/_variables';
+.button {
+  border: none;
+  color: black;
+  font-size: 1.25rem;
+  padding: 5px 10px;
+  margin: auto;
+  display: block;
+  border: 2px solid $accent;
+
+  &:hover {
+    box-shadow: 0px 0px 4px $accent;
+  }
+}

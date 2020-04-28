@@ -1,0 +1,59 @@
+@import '../../styles/_variables';
+.settings-wrapper {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .settings {
+    margin-top: -10vh;
+    background-color: $bg-secondary;
+    h2,
+    p {
+      font-weight: 300;
+      padding-top: 5px;
+      text-align: center;
+    }
+    h2 {
+      margin-top: 10px;
+    }
+    .settings-content {
+      display: flex;
+      flex-direction: row;
+
+      .settings-categories,
+      .settings-values {
+        display: flex;
+        flex-direction: column;
+        margin: 0 1.25rem;
+        font-weight: 300;
+        font-size: 1.2rem;
+        span {
+          margin-top: 5px;
+        }
+      }
+    }
+    .settings-actions {
+      display: flex;
+      justify-content: space-around;
+      margin: 20px 0;
+      span {
+        svg {
+          cursor: pointer;
+          margin: 0 10px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .settings {
+    margin-left: -5rem;
+    margin-top: 0 !important;
+    .settings-content {
+      background-color: $bg-secondary;
+    }
+  }
+}

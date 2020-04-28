@@ -1,0 +1,19 @@
+@import '../../../styles/_variables';
+
+.task-dialog div div {
+  background-color: $bg-primary;
+  box-shadow: none;
+  .task-dialog-header {
+    font-weight: 200;
+    color: white;
+    text-align: center;
+    width: 250px;
+    margin: auto;
+  }
+  .task-dialog-close {
+    color: white;
+    cursor: pointer;
+    margin: 5px;
+    margin-top: 0;
+  }
+}
