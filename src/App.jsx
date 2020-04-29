@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import "./App.scss";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
+import axios from "axios";
 
 // pages
 import Navbar from "./components/navbar/Navbar.component";
@@ -15,8 +16,12 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { loadUser } from "./redux/auth/auth.actions";
 
+//utils
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./components/HOCs/PrivateRoute";
+
+//set API url to base url
+axios.defaults.baseURL = "https://semoto-api.herokuapp.com/";
 
 const App = () => {
   useEffect(() => {
