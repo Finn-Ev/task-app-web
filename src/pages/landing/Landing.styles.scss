@@ -1,4 +1,4 @@
-@import '../../styles/_variables';
+@import "../../styles/_variables";
 .landing {
   height: 100vh;
   display: flex;
@@ -26,7 +26,7 @@
     text-align: center;
     width: 92.5% !important;
     margin: 2rem 0;
-    max-width: 800px;
+    max-width: 300px;
     line-height: 25px;
   }
 }

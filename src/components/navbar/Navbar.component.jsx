@@ -1,31 +1,36 @@
-import React, { useState } from 'react';
-import './Navbar.styles.scss';
-import { NavLink, withRouter } from 'react-router-dom';
+import React, { useState } from "react";
+import "./Navbar.styles.scss";
+import { NavLink, withRouter } from "react-router-dom";
 
 // icons
-import DoubleArrowRoundedIcon from '@material-ui/icons/DoubleArrowRounded';
-import HomeRoundedIcon from '@material-ui/icons/HomeRounded';
-import SettingsRoundedIcon from '@material-ui/icons/SettingsRounded';
-import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
-import PersonAddIcon from '@material-ui/icons/PersonAdd';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import DoubleArrowRoundedIcon from "@material-ui/icons/DoubleArrowRounded";
+import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
+import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
+import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 
-import { connect } from 'react-redux';
-import { logoutUser } from '../../redux/auth/auth.actions';
-import { setAlert } from '../../redux/alert/alert.actions';
+import { connect } from "react-redux";
+import { logoutUser } from "../../redux/auth/auth.actions";
+import { setAlert } from "../../redux/alert/alert.actions";
 
-const Navbar = ({ auth: { isAuthenticated, loading }, logoutUser, setAlert, history }) => {
+const Navbar = ({
+  auth: { isAuthenticated, loading },
+  logoutUser,
+  setAlert,
+  history,
+}) => {
   const handleLogout = () => {
     logoutUser();
-    setAlert('Du wurdest ausgeloggt', 'success');
-    history.push('/');
+    setAlert("Du wurdest ausgeloggt", "success");
+    history.push("/");
   };
   return (
     <nav className="navbar">
       <ul className="navbar-nav">
         <li className="logo ">
           <span className="nav-link ">
-            <span className="link-text logo-text">Semoto</span>
+            <span className="link-text logo-text">TaskApp</span>
             <DoubleArrowRoundedIcon className="nav-toggler" />
           </span>
         </li>
@@ -83,7 +88,9 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logoutUser, setAlert, hist
 };
 
 const mapStateToProps = ({ auth }) => ({
-  auth
+  auth,
 });
 
-export default withRouter(connect(mapStateToProps, { logoutUser, setAlert })(Navbar));
+export default withRouter(
+  connect(mapStateToProps, { logoutUser, setAlert })(Navbar)
+);

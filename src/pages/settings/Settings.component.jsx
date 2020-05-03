@@ -1,24 +1,24 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
-import './Settings.styles.scss';
+import React from "react";
+import { Helmet } from "react-helmet";
+import "./Settings.styles.scss";
 
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
 
 //icons
-import DeleteIcon from '@material-ui/icons/Delete';
-import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from "@material-ui/icons/Delete";
+import EditIcon from "@material-ui/icons/Edit";
 
 const Profile = ({ user }) => {
   return (
     <React.Fragment>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Einstellungen | Semoto </title>
+        <title>Einstellungen | TaskApp </title>
       </Helmet>
       <div className="settings-wrapper">
         <div className="settings">
           <h2>Einstellungen</h2>
-          <p>Du kannst deine Daten jederzeit ändern</p>
+          {/* <p>Du kannst deine Daten jederzeit ändern</p> */}
           <hr className="line" />
           <div className="settings-content">
             <div className="settings-categories">
@@ -46,7 +46,7 @@ const Profile = ({ user }) => {
   );
 };
 const mapStateToProps = ({ auth: { user } }) => ({
-  user
+  user,
 });
 
 export default connect(mapStateToProps)(Profile);
