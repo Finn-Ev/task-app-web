@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export const useAuthForm = (
   validationSuccessHandler,
@@ -6,36 +6,36 @@ export const useAuthForm = (
   operation
 ) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    password2: ''
+    name: "",
+    email: "",
+    password: "",
+    password2: "",
   });
   const [errors, setErrors] = useState({});
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = e => {
+  const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setErrors(validateForm(formData));
-    setIsSubmitting(true);
+    setSubmitted(true);
   };
 
   useEffect(() => {
-    if (operation === 'register') {
+    if (operation === "register") {
       if (
         !errors.email &&
         !errors.password &&
         !errors.name &&
         !errors.password2 &&
-        isSubmitting
+        submitted
       ) {
         validationSuccessHandler(); // this will register the user
       }
@@ -43,8 +43,8 @@ export const useAuthForm = (
   }, [errors]);
 
   useEffect(() => {
-    if (operation === 'login') {
-      if (!errors.email && !errors.password && isSubmitting) {
+    if (operation === "login") {
+      if (!errors.email && !errors.password && submitted) {
         validationSuccessHandler(); // this will try to log in the user
       }
     }
@@ -54,6 +54,7 @@ export const useAuthForm = (
     handleChange,
     handleSubmit,
     formData,
-    errors
+    errors,
+    submitted,
   };
 };

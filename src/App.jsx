@@ -20,7 +20,7 @@ import { loadUser } from "./redux/auth/auth.actions";
 import setAuthToken from "./utils/setAuthToken";
 import PrivateRoute from "./components/HOCs/PrivateRoute";
 
-//set API url to base url
+//set base url
 axios.defaults.baseURL = "https://semoto-api.herokuapp.com/";
 
 const App = () => {

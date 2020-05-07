@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import "../../styles/auth-form.scss";
 import { Link, Redirect } from "react-router-dom";
 import Button from "../../components/button/Button.component";
@@ -6,14 +6,20 @@ import { useAuthForm } from "../../utils/form-validation/useAuthForm";
 import { validateForm } from "../../utils/form-validation/validateForm";
 import { Helmet } from "react-helmet";
 import Alert from "../../components/alert/Alert.component";
+import MoonLoader from "react-spinners/MoonLoader";
 
 //redux
 import { connect } from "react-redux";
 import { loginUser } from "../../redux/auth/auth.actions";
 
-const Login = ({ loginUser, isAuthenticated, loading }) => {
+const Login = ({ loginUser, isAuthenticated }) => {
+  const [submitted, setSubmitted] = useState(false);
+  const validationSuccess = () => {
+    loginUser(email, password);
+    setSubmitted(true);
+  };
   const { handleChange, handleSubmit, formData, errors } = useAuthForm(
-    () => loginUser(email, password),
+    validationSuccess,
     validateForm,
     "login"
   );
@@ -66,7 +72,11 @@ const Login = ({ loginUser, isAuthenticated, loading }) => {
               type="submit"
               style={{ marginTop: "2rem", backgroundColor: "#0bbbda" }}
             >
-              Einloggen
+              {submitted ? (
+                <MoonLoader size={20} loading={submitted} />
+              ) : (
+                "Einloggen"
+              )}
             </Button>
           </form>
           <p className="my-3 form-redirect">
@@ -79,9 +89,8 @@ const Login = ({ loginUser, isAuthenticated, loading }) => {
   );
 };
 
-const mapStateToProps = ({ auth: { isAuthenticated, loading } }) => ({
+const mapStateToProps = ({ auth: { isAuthenticated } }) => ({
   isAuthenticated,
-  loading,
 });
 
 export default connect(mapStateToProps, { loginUser })(Login);

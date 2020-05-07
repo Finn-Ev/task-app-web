@@ -4,6 +4,7 @@ import TaskItem from "../../components/task-list-components/task-item/TaskItem.c
 import TaskListMenu from "../../components/task-list-components/task-list-menu/TaskListMenu.component";
 import { Helmet } from "react-helmet";
 import Alert from "../../components/alert/Alert.component";
+import MoonLoader from "react-spinners/MoonLoader";
 
 // redux
 import { connect } from "react-redux";
@@ -37,7 +38,7 @@ const TaskList = ({ tasks, loadingTasks }) => {
               Du hast keine ausstehenden Aufgaben
             </h4>
           ) : (
-            <p className="spinner">Lädt...</p>
+            <MoonLoader size={80} color={"#fff"} loading={loadingTasks} />
           )}
         </div>
       </div>

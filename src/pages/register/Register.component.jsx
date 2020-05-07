@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../styles/auth-form.scss";
 import { Link, Redirect } from "react-router-dom";
 import Button from "../../components/button/Button.component";
@@ -6,14 +6,21 @@ import { useAuthForm } from "../../utils/form-validation/useAuthForm";
 import { validateForm } from "../../utils/form-validation/validateForm";
 import Alert from "../../components/alert/Alert.component";
 import { Helmet } from "react-helmet";
+import MoonLoader from "react-spinners/MoonLoader";
 
 //redux
 import { connect } from "react-redux";
 import { registerUser } from "../../redux/auth/auth.actions";
 
 const Register = ({ registerUser, isAuthenticated }) => {
+  const [submitted, setSubmitted] = useState(false);
+
+  const validationSuccess = () => {
+    registerUser({ name, email, password });
+    setSubmitted(true);
+  };
   const { handleChange, handleSubmit, formData, errors } = useAuthForm(
-    () => registerUser({ name, email, password }),
+    validationSuccess,
     validateForm,
     "register"
   );
@@ -95,7 +102,11 @@ const Register = ({ registerUser, isAuthenticated }) => {
               type="submit"
               style={{ marginTop: "2rem", backgroundColor: "#0bbbda" }}
             >
-              Registrieren
+              {submitted ? (
+                <MoonLoader size={20} loading={submitted} />
+              ) : (
+                "Registrieren"
+              )}
             </Button>
           </form>
 
