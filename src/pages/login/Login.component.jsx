@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../styles/auth-form.scss";
 import { Link, Redirect } from "react-router-dom";
 import Button from "../../components/button/Button.component";
@@ -11,7 +11,7 @@ import Alert from "../../components/alert/Alert.component";
 import { connect } from "react-redux";
 import { loginUser } from "../../redux/auth/auth.actions";
 
-const Login = ({ loginUser, isAuthenticated }) => {
+const Login = ({ loginUser, isAuthenticated, loading }) => {
   const { handleChange, handleSubmit, formData, errors } = useAuthForm(
     () => loginUser(email, password),
     validateForm,
@@ -79,8 +79,9 @@ const Login = ({ loginUser, isAuthenticated }) => {
   );
 };
 
-const mapStateToProps = ({ auth: { isAuthenticated } }) => ({
+const mapStateToProps = ({ auth: { isAuthenticated, loading } }) => ({
   isAuthenticated,
+  loading,
 });
 
 export default connect(mapStateToProps, { loginUser })(Login);

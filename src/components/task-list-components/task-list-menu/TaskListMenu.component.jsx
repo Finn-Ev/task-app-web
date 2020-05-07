@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from 'react';
-import './TaskListMenu.styles.scss';
+import React, { useState, useEffect } from "react";
+import "./TaskListMenu.styles.scss";
 
-import SortIcon from '@material-ui/icons/Sort';
-import TaskDialog from '../../dialogs/task-dialog/TaskDialog.component';
+import SortIcon from "@material-ui/icons/Sort";
+import TaskDialog from "../../dialogs/task-dialog/TaskDialog.component";
 
 // redux
-import { connect } from 'react-redux';
-import { fetchTasks } from '../../../redux/tasks/tasks.actions';
+import { connect } from "react-redux";
+import { fetchTasks } from "../../../redux/tasks/tasks.actions";
 
 const TaskListMenu = ({ fetchTasks, auth }) => {
-  const sortBy = ['createdAt', 'dueDate', 'importance'];
+  const sortBy = ["createdAt", "dueDate", "importance"];
   const [selectedSortIndex, setSelectedSortIndex] = useState(
-    parseInt(localStorage.getItem('selectedSortIndex')) || 0
+    parseInt(localStorage.getItem("selectedSortIndex")) || 0
   );
 
-  const changeSortMethod = index => {
+  const changeSortMethod = (index) => {
     if (index === 2) {
       setSelectedSortIndex(0);
     } else {
@@ -23,7 +23,7 @@ const TaskListMenu = ({ fetchTasks, auth }) => {
   };
 
   useEffect(() => {
-    localStorage.setItem('selectedSortIndex', selectedSortIndex.toString());
+    localStorage.setItem("selectedSortIndex", selectedSortIndex.toString());
   }, [selectedSortIndex]);
 
   useEffect(() => {
@@ -31,13 +31,13 @@ const TaskListMenu = ({ fetchTasks, auth }) => {
   }, [selectedSortIndex, auth.loading]);
 
   // translate sortBy Array options to german
-  let translatedSortBy = '';
-  if (sortBy[selectedSortIndex] === 'createdAt')
-    translatedSortBy = 'Erstellungsdatum';
-  else if (sortBy[selectedSortIndex] === 'dueDate')
-    translatedSortBy = 'Fälligkeitsdatum';
-  if (sortBy[selectedSortIndex] === 'importance')
-    translatedSortBy = 'Wichtigkeit';
+  let translatedSortBy = "";
+  if (sortBy[selectedSortIndex] === "createdAt")
+    translatedSortBy = "Erstellungsdatum";
+  else if (sortBy[selectedSortIndex] === "dueDate")
+    translatedSortBy = "Fälligkeitsdatum";
+  if (sortBy[selectedSortIndex] === "importance")
+    translatedSortBy = "Wichtigkeit";
 
   return (
     <div className="task-list-menu">
@@ -45,7 +45,7 @@ const TaskListMenu = ({ fetchTasks, auth }) => {
         <TaskDialog type="newTask" />
       </div>
       <div className="sort" onClick={() => changeSortMethod(selectedSortIndex)}>
-        {translatedSortBy + ' '}
+        {translatedSortBy + " "}
 
         <SortIcon />
       </div>
@@ -55,6 +55,6 @@ const TaskListMenu = ({ fetchTasks, auth }) => {
 
 const mapDispatchToProps = ({ tasks: { allTasks }, auth }) => ({
   allTasks,
-  auth
+  auth,
 });
 export default connect(mapDispatchToProps, { fetchTasks })(TaskListMenu);

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./TaskList.styles.scss";
 import TaskItem from "../../components/task-list-components/task-item/TaskItem.component";
 import TaskListMenu from "../../components/task-list-components/task-list-menu/TaskListMenu.component";
@@ -14,7 +14,7 @@ const TaskList = ({ tasks, loadingTasks }) => {
     <React.Fragment>
       <Helmet>
         <meta charSet="utf-8" />
-        <title>Aufgaben | TaskApp </title>
+        <title>Aufgaben | TaskApp</title>
       </Helmet>
       <div className="task-list">
         <h3 className="task-list-header">Offene Aufgaben</h3>
