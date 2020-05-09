@@ -46,3 +46,21 @@
     font-weight: 200;
   }
 }
+
+@media only screen and (min-width: 1400px) {
+  .landing {
+    img {
+      height: 7rem !important;
+    }
+    .landing-logo-text {
+      font-size: 5rem !important;
+    }
+
+    .landing-info {
+      font-size: 1.75rem;
+      line-height: initial;
+      font-weight: 300;
+      max-width: 400px;
+    }
+  }
+}
