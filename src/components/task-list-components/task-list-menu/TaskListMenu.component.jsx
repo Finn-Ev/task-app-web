@@ -9,13 +9,13 @@ import { connect } from "react-redux";
 import { fetchTasks } from "../../../redux/tasks/tasks.actions";
 
 const TaskListMenu = ({ fetchTasks, auth }) => {
-  const sortBy = ["createdAt", "dueDate", "importance"];
+  const sortBy = ["createdAt", "dueDate"];
   const [selectedSortIndex, setSelectedSortIndex] = useState(
     parseInt(localStorage.getItem("selectedSortIndex")) || 0
   );
 
   const changeSortMethod = (index) => {
-    if (index === 2) {
+    if (index === 1) {
       setSelectedSortIndex(0);
     } else {
       setSelectedSortIndex(index + 1);
