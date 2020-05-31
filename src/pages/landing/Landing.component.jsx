@@ -38,11 +38,11 @@ const Landing = ({ history, auth: { isAuthenticated, user } }) => {
           </div>
         ) : (
           <div className="landing-info">
-            Eine App mit der Du Termine und Aufgaben erstellen kannst, um so den
+            Eine App mit der du Termine und Aufgaben erstellen kannst, um so den
             Überblick zu behalten <br />
             <Button
               type="button"
-              onClick={() => history.push("/login")}
+              onClick={() => history.push("/register")}
               style={{ marginTop: "2rem", backgroundColor: "#0bbbda" }}
             >
               Los gehts
