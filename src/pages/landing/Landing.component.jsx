@@ -38,14 +38,14 @@ const Landing = ({ history, auth: { isAuthenticated, user } }) => {
           </div>
         ) : (
           <div className="landing-info">
-            Eine App die dir hilft deinen Tag zu strukturieren, um so
-            produktiver zu sein. <br />
+            Eine App mit der Du Termine und Aufgaben erstellen kannst, um so den
+            Überblick zu behalten <br />
             <Button
               type="button"
               onClick={() => history.push("/login")}
               style={{ marginTop: "2rem", backgroundColor: "#0bbbda" }}
             >
-              Los gehts!
+              Los gehts
             </Button>
           </div>
         )}
