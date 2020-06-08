@@ -1,9 +1,9 @@
 import React from "react";
-import "./Landing.styles.scss";
-import Button from "../../components/button/Button.component";
-import Alert from "../../components/alert/Alert.component";
 import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
+import Alert from "../../components/alert/Alert.component";
+import Button from "../../components/button/Button.component";
+import "./Landing.styles.scss";
 
 const Landing = ({ history, auth: { isAuthenticated, user } }) => {
   return (
@@ -38,14 +38,15 @@ const Landing = ({ history, auth: { isAuthenticated, user } }) => {
           </div>
         ) : (
           <div className="landing-info">
-            Eine App mit der du Termine und Aufgaben erstellen kannst, um so den
-            Überblick zu behalten <br />
+            Dies ist ein Aufgaben-Manager, welcher jediglich als
+            Portfolioprojekt dient. <br /> Es kann keine Datensicherheit
+            garantiert werden. <br />
             <Button
               type="button"
-              onClick={() => history.push("/register")}
+              onClick={() => history.push("/login")}
               style={{ marginTop: "2rem", backgroundColor: "#0bbbda" }}
             >
-              Los gehts
+              Zum Login
             </Button>
           </div>
         )}

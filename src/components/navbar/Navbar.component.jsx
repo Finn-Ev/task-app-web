@@ -1,18 +1,16 @@
-import React from "react";
-import "./Navbar.styles.scss";
-import { NavLink, withRouter } from "react-router-dom";
-
 // icons
 import DoubleArrowRoundedIcon from "@material-ui/icons/DoubleArrowRounded";
-import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
-import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
-import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
-import PersonAddIcon from "@material-ui/icons/PersonAdd";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
-
+import FormatListBulletedIcon from "@material-ui/icons/FormatListBulleted";
+import HomeRoundedIcon from "@material-ui/icons/HomeRounded";
+import PersonAddIcon from "@material-ui/icons/PersonAdd";
+import SettingsRoundedIcon from "@material-ui/icons/SettingsRounded";
+import React from "react";
 import { connect } from "react-redux";
-import { logoutUser } from "../../redux/auth/auth.actions";
+import { NavLink, withRouter } from "react-router-dom";
 import { setAlert } from "../../redux/alert/alert.actions";
+import { logoutUser } from "../../redux/auth/auth.actions";
+import "./Navbar.styles.scss";
 
 const Navbar = ({
   auth: { isAuthenticated, loading },

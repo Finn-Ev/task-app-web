@@ -1,12 +1,8 @@
+//icons
 import React from "react";
 import { Helmet } from "react-helmet";
-import "./Settings.styles.scss";
-
 import { connect } from "react-redux";
-
-//icons
-import DeleteIcon from "@material-ui/icons/Delete";
-import EditIcon from "@material-ui/icons/Edit";
+import "./Settings.styles.scss";
 
 const Profile = ({ user }) => {
   return (
@@ -32,14 +28,14 @@ const Profile = ({ user }) => {
               <span className="password">********</span>
             </div>
           </div>
-          <div className="settings-actions">
+          {/* <div className="settings-actions">
             <span className="edit-user">
               <EditIcon />
             </span>
             <span className="delete-user">
               <DeleteIcon />
             </span>
-          </div>
+          </div> */}
         </div>
       </div>
     </React.Fragment>
