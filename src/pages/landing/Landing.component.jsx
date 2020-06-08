@@ -38,7 +38,7 @@ const Landing = ({ history, auth: { isAuthenticated, user } }) => {
           </div>
         ) : (
           <div className="landing-info">
-            Dies ist ein Aufgaben-Manager, welcher jediglich als
+            Dies ist ein Aufgaben-Manager, welcher lediglich als
             Portfolioprojekt dient. <br /> Es kann keine Datensicherheit
             garantiert werden. <br />
             <Button
