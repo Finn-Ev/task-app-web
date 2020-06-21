@@ -1,15 +1,18 @@
 .alert {
+  position: absolute;
   padding: 0.8rem;
-  margin: 10px 0 !important;
   opacity: 0.9;
   border: none;
   border-radius: 0;
   color: white;
-  max-width: 500px;
-  margin: auto;
-  min-width: 250px;
-  width: 50%;
+  width: 80%;
+  margin: 0 10%;
   text-align: center;
+
+  @media screen and (min-width: 1000px) {
+    margin: 0 30%;
+    width: 40%;
+  }
 }
 
 .alert-dark {

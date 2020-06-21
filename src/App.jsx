@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
-import "./App.scss";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
 import axios from "axios";
-
+import React, { useEffect } from "react";
+//redux
+import { Provider } from "react-redux";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import "./App.scss";
+import Alert from "./components/alert/Alert.component";
+import PrivateRoute from "./components/HOCs/PrivateRoute";
 // pages
 import Navbar from "./components/navbar/Navbar.component";
 import Landing from "./pages/landing/Landing.component";
@@ -10,15 +13,10 @@ import Login from "./pages/login/Login.component";
 import Register from "./pages/register/Register.component";
 import Settings from "./pages/settings/Settings.component";
 import TaskList from "./pages/task-list/TaskList.component";
-
-//redux
-import { Provider } from "react-redux";
-import store from "./redux/store";
 import { loadUser } from "./redux/auth/auth.actions";
-
+import store from "./redux/store";
 //utils
 import setAuthToken from "./utils/setAuthToken";
-import PrivateRoute from "./components/HOCs/PrivateRoute";
 
 //set base url
 axios.defaults.baseURL = "https://semoto-api.herokuapp.com/";
@@ -33,6 +31,7 @@ const App = () => {
     <Provider store={store}>
       <BrowserRouter>
         <Navbar />
+        <Alert />
         <div className="App">
           <Switch>
             <Route exact path="/" component={Landing} />

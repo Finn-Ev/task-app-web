@@ -1,16 +1,14 @@
 import React, { useState } from "react";
-import "../../styles/auth-form.scss";
-import { Link, Redirect } from "react-router-dom";
-import Button from "../../components/button/Button.component";
-import { useAuthForm } from "../../utils/form-validation/useAuthForm";
-import { validateForm } from "../../utils/form-validation/validateForm";
-import Alert from "../../components/alert/Alert.component";
 import { Helmet } from "react-helmet";
-import MoonLoader from "react-spinners/MoonLoader";
-
 //redux
 import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
+import MoonLoader from "react-spinners/MoonLoader";
+import Button from "../../components/button/Button.component";
 import { registerUser } from "../../redux/auth/auth.actions";
+import "../../styles/auth-form.scss";
+import { useAuthForm } from "../../utils/form-validation/useAuthForm";
+import { validateForm } from "../../utils/form-validation/validateForm";
 
 const Register = ({ registerUser, isAuthenticated }) => {
   const [submitted, setSubmitted] = useState(false);
@@ -18,6 +16,9 @@ const Register = ({ registerUser, isAuthenticated }) => {
   const validationSuccess = () => {
     registerUser({ name, email, password });
     setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 5000);
   };
   const { handleChange, handleSubmit, formData, errors } = useAuthForm(
     validationSuccess,
@@ -40,7 +41,7 @@ const Register = ({ registerUser, isAuthenticated }) => {
         <div className="auth-form pt-5">
           <h3 className="mb-3">Registrieren</h3>
           <p className="pb-2">Hier kannst du deinen Account erstellen</p>
-          <Alert />
+
           <form
             noValidate
             autoComplete="off"

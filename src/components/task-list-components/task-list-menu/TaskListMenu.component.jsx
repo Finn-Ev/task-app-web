@@ -1,12 +1,10 @@
-import React, { useState, useEffect } from "react";
-import "./TaskListMenu.styles.scss";
-
 import SortIcon from "@material-ui/icons/Sort";
-import TaskDialog from "../../dialogs/task-dialog/TaskDialog.component";
-
+import React, { useEffect, useState } from "react";
 // redux
 import { connect } from "react-redux";
 import { fetchTasks } from "../../../redux/tasks/tasks.actions";
+import TaskDialog from "../../dialogs/task-dialog/TaskDialog.component";
+import "./TaskListMenu.styles.scss";
 
 const TaskListMenu = ({ fetchTasks, auth }) => {
   const sortBy = ["createdAt", "dueDate"];

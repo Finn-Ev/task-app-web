@@ -1,22 +1,23 @@
 import React, { useState } from "react";
-import "../../styles/auth-form.scss";
-import { Link, Redirect } from "react-router-dom";
-import Button from "../../components/button/Button.component";
-import { useAuthForm } from "../../utils/form-validation/useAuthForm";
-import { validateForm } from "../../utils/form-validation/validateForm";
 import { Helmet } from "react-helmet";
-import Alert from "../../components/alert/Alert.component";
-import MoonLoader from "react-spinners/MoonLoader";
-
 //redux
 import { connect } from "react-redux";
+import { Link, Redirect } from "react-router-dom";
+import MoonLoader from "react-spinners/MoonLoader";
+import Button from "../../components/button/Button.component";
 import { loginUser } from "../../redux/auth/auth.actions";
+import "../../styles/auth-form.scss";
+import { useAuthForm } from "../../utils/form-validation/useAuthForm";
+import { validateForm } from "../../utils/form-validation/validateForm";
 
 const Login = ({ loginUser, isAuthenticated }) => {
   const [submitted, setSubmitted] = useState(false);
   const validationSuccess = () => {
     loginUser(email, password);
     setSubmitted(true);
+    setTimeout(() => {
+      setSubmitted(false);
+    }, 5000);
   };
   const { handleChange, handleSubmit, formData, errors } = useAuthForm(
     validationSuccess,
@@ -40,7 +41,7 @@ const Login = ({ loginUser, isAuthenticated }) => {
         <div className="auth-form pt-5">
           <h3 className="mb-3">Einloggen</h3>
           <p className="pb-2">Hier kannst du dich Anmelden</p>
-          <Alert />
+
           <form noValidate className="form" onSubmit={(e) => handleSubmit(e)}>
             <div className="input-wrapper">
               <input

@@ -1,14 +1,12 @@
 import React from "react";
-import "./TaskList.styles.scss";
-import TaskItem from "../../components/task-list-components/task-item/TaskItem.component";
-import TaskListMenu from "../../components/task-list-components/task-list-menu/TaskListMenu.component";
 import { Helmet } from "react-helmet";
-import Alert from "../../components/alert/Alert.component";
-import MoonLoader from "react-spinners/MoonLoader";
-
 // redux
 import { connect } from "react-redux";
+import MoonLoader from "react-spinners/MoonLoader";
+import TaskItem from "../../components/task-list-components/task-item/TaskItem.component";
+import TaskListMenu from "../../components/task-list-components/task-list-menu/TaskListMenu.component";
 import { fetchTasks } from "../../redux/tasks/tasks.actions";
+import "./TaskList.styles.scss";
 
 const TaskList = ({ tasks, loadingTasks }) => {
   return (
@@ -20,7 +18,7 @@ const TaskList = ({ tasks, loadingTasks }) => {
       <div className="task-list">
         <h3 className="task-list-header">Offene Aufgaben</h3>
         <TaskListMenu />
-        <Alert />
+
         <div className="task-wrapper">
           {tasks.length ? (
             tasks.map(({ taskName, notes, dueDate, importance, _id }) => (

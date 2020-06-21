@@ -1,7 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { connect } from "react-redux";
-import Alert from "../../components/alert/Alert.component";
 import Button from "../../components/button/Button.component";
 import "./Landing.styles.scss";
 
@@ -17,7 +16,7 @@ const Landing = ({ history, auth: { isAuthenticated, user } }) => {
           <img src="logo.png" alt="Logo" />
           <span className="landing-logo-text">TaskApp</span>
         </div>
-        <Alert />
+
         {isAuthenticated ? (
           <div className="landing-info">
             <h4 style={{ fontWeight: "350" }}>
